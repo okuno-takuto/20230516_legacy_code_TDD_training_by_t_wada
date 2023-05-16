@@ -84,12 +84,7 @@ function runLifegame($prev, $g) {
 }
 
 function getInitial() {
-    $b = [];
-    for ($i = 0; $i < 5; $i++) {
-        for ($j = 0; $j < 5; $j++) {
-            $b[$i][$j] = "□";
-        }
-    }
+    $b = array_fill(0, 5, array_fill(0, 5, "□"));
     $b[2][1] = "■";
     $b[2][2] = "■";
     $b[2][3] = "■";
