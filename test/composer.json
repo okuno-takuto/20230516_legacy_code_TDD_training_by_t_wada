@@ -1,0 +1,21 @@
+{
+    "name": "wewlc/seminar",
+    "description": "php example",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">= 8"
+    },
+    "require-dev": {
+        "php-webdriver/webdriver": "^1.14",
+        "phpunit/phpunit": "^10"
+    },
+    "autoload": {
+        "psr-4": {
+          "Wewlc\\": [
+            "src/Wewlc/",
+            "tests/Wewlc/"
+          ]
+        }
+    }
+}
