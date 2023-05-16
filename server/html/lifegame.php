@@ -7,26 +7,26 @@ $params = [
     'g' => isset($_GET['g']) ? $_GET['g'] : null,
 ];
 
-[$g, $b, $s] = runLifegame($params['prev'], $params['g']);
+[$generation, $cells, $cellsStringSeparatedByNine] = runLifegame($params['prev'], $params['g']);
 ?>
 <!doctype html>
 <head>
     <title>LIFEGAME</title>
 </head>
 <body>
-<h3 class="generation">GENERATION: <?php echo htmlspecialchars($g) ?></h3>
+<h3 class="generation">GENERATION: <?php echo htmlspecialchars($generation) ?></h3>
 <table class="board">
-    <?php foreach ($b as $cs): ?>
+    <?php foreach ($cells as $row): ?>
         <tr>
-            <?php foreach ($cs as $c): ?>
+            <?php foreach ($row as $cell): ?>
                 <td>
-                    <?php echo htmlspecialchars($c) ?>
+                    <?php echo htmlspecialchars($cell) ?>
                 </td>
             <?php endforeach; ?>
         </tr>
     <?php endforeach; ?>
 </table>
-<a href="/lifegame.php?g=<?php echo rawurldecode($g + 1) ?>&prev=<?php echo rawurldecode($s) ?>">NEXT GENERATION</a>
+<a href="/lifegame.php?g=<?php echo rawurldecode($generation + 1) ?>&prev=<?php echo rawurldecode($cellsStringSeparatedByNine) ?>">NEXT GENERATION</a>
 <br/>
 <?php echo htmlspecialchars($tstp) ?>
 </body>
