@@ -4,19 +4,9 @@ function runLifegame($prev, $generation) {
     if (isset ($prev)) {
         $prev = $prev;
         $cells = [];
-        $lns = explode('9', $prev);
-        for ($i = 0, $len = count($lns); $i < $len; $i++) {
-            $ln = $lns[$i];
-            $r = [];
-            for ($j = 0, $len2 = mb_strlen($ln); $j < $len2; $j++) {
-                if ($ln[$j] == 0) {
-                    $r[] = '□';
-                } else {
-                    $r[] = '■';
-                }
-            }
-            $cells[] = $r;
-        }
+        // $prev を元に前回の盤面を再現
+        $cells = getCellsFromSeparatedCellsString($prev, '9');
+
         $bb = [];
         for ($i = 0, $len = count($cells); $i < $len; $i++) {
             $r = [];
@@ -105,4 +95,13 @@ function getInitial() {
     $cellsStringSeparatedByNine = implode('9', $n);
     $generation = 1;
     return [$generation, $cells, $cellsStringSeparatedByNine];
+}
+
+function getCellsFromSeparatedCellsString(string $cellsString, string $separator) {
+    $cellStrings = explode($separator, $cellsString);
+    return array_map('replaceCellsStringIntoCells', $cellStrings);
+}
+
+function replaceCellsStringIntoCells (string $cellsString) {
+    return mb_str_split(str_replace('1', '■', str_replace('0', '□', $cellsString)));
 }
