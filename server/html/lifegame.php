@@ -3,8 +3,8 @@ require './now.php';
 require './lifegame_logic.php';
 
 $params = [
-    'prev' =>$_GET['prev'],
-    'g' => $_GET["g"],
+    'prev' => isset($_GET['prev']) ? $_GET['prev'] : null,
+    'g' => isset($_GET['g']) ? $_GET['g'] : null,
 ];
 
 [$g, $b, $s] = runLifegame($params['prev'], $params['g']);
