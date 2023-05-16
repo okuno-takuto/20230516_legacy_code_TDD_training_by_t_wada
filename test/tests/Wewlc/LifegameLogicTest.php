@@ -15,16 +15,16 @@ class LifegameLogicTest extends TestCase
     {
         $params = [
             'prev' => null,
-            'g' => null
+            'generation' => null
         ];
-        list($g, $b, $s) = runLifegame($params['prev'], $params['g']);
+        [$generation, $cells, $cellsStringSeparatedByNine] = runLifegame($params['prev'], $params['generation']);
         $this->assertSame([
             ["□", "□", "□", "□", "□"],
             ["□", "□", "□", "□", "□"],
             ["□", "■", "■", "■", "□"],
             ["□", "□", "□", "□", "□"],
             ["□", "□", "□", "□", "□"],
-        ], $b);
+        ], $cells);
     }
 
     /**
@@ -36,15 +36,15 @@ class LifegameLogicTest extends TestCase
     {
         $params = [
             'prev' => '00000900000901110900000900000',
-            'g' => '2'
+            'generation' => '2'
         ];
-        list($g, $b, $s) = runLifegame($params['prev'], $params['g']);
+        [$generation, $cells, $cellsStringSeparatedByNine] = runLifegame($params['prev'], $params['generation']);
         $this->assertSame([
             ["□", "□", "□", "□", "□"],
             ["□", "□", "■", "□", "□"],
             ["□", "□", "■", "□", "□"],
             ["□", "□", "■", "□", "□"],
             ["□", "□", "□", "□", "□"],
-        ], $b);
+        ], $cells);
     }
 }

@@ -4,10 +4,10 @@ require './lifegame_logic.php';
 
 $params = [
     'prev' => isset($_GET['prev']) ? $_GET['prev'] : null,
-    'g' => isset($_GET['g']) ? $_GET['g'] : null,
+    'generation' => isset($_GET['g']) ? $_GET['g'] : null,
 ];
 
-[$generation, $cells, $cellsStringSeparatedByNine] = runLifegame($params['prev'], $params['g']);
+[$generation, $cells, $cellsStringSeparatedByNine] = runLifegame($params['prev'], $params['generation']);
 ?>
 <!doctype html>
 <head>
