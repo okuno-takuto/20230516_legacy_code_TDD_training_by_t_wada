@@ -17,7 +17,7 @@ class LifegameLogicTest extends TestCase
             'prev' => null,
             'g' => null
         ];
-        list($g, $b, $s) = run_lifegame($params['prev'], $params['g']);
+        list($g, $b, $s) = runLifegame($params['prev'], $params['g']);
         $this->assertSame([
             ["□", "□", "□", "□", "□"],
             ["□", "□", "□", "□", "□"],

@@ -1,6 +1,6 @@
 <?php
 
-function run_lifegame($prev, $g) {
+function runLifegame($prev, $g) {
     if (isset ($prev)) {
         $prev = $prev;
         $b = [];
@@ -79,30 +79,34 @@ function run_lifegame($prev, $g) {
         $g = (int)$g;
         return [$g, $b, $s];
     } else {
-        $b = [];
-        for ($i = 0; $i < 5; $i++) {
-            for ($j = 0; $j < 5; $j++) {
-                $b[$i][$j] = "□";
-            }
-        }
-        $b[2][1] = "■";
-        $b[2][2] = "■";
-        $b[2][3] = "■";
-        $n = [];
-        for ($i = 0; $i < 5; $i++) {
-            $r = $b[$i];
-            $nr = [];
-            for ($j = 0; $j < 5; $j++) {
-                if ($r[$j] == '□') {
-                    $nr[] = '0';
-                } else {
-                    $nr[] = '1';
-                }
-            }
-            $n[] = implode('', $nr);
-        }
-        $s = implode('9', $n);
-        $g = 1;
-        return [$g, $b, $s];
+        return getInitial();
     }
+}
+
+function getInitial() {
+    $b = [];
+    for ($i = 0; $i < 5; $i++) {
+        for ($j = 0; $j < 5; $j++) {
+            $b[$i][$j] = "□";
+        }
+    }
+    $b[2][1] = "■";
+    $b[2][2] = "■";
+    $b[2][3] = "■";
+    $n = [];
+    for ($i = 0; $i < 5; $i++) {
+        $r = $b[$i];
+        $nr = [];
+        for ($j = 0; $j < 5; $j++) {
+            if ($r[$j] == '□') {
+                $nr[] = '0';
+            } else {
+                $nr[] = '1';
+            }
+        }
+        $n[] = implode('', $nr);
+    }
+    $s = implode('9', $n);
+    $g = 1;
+    return [$g, $b, $s];
 }
