@@ -2,7 +2,12 @@
 require './now.php';
 require './lifegame_logic.php';
 
-list($g, $b, $s) = runLifegame($_GET["prev"], $_GET["g"]);
+$params = [
+    'prev' =>$_GET['prev'],
+    'g' => $_GET["g"],
+];
+
+[$g, $b, $s] = runLifegame($params['prev'], $params['g']);
 ?>
 <!doctype html>
 <head>
